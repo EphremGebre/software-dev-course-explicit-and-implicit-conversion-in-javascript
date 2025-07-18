@@ -19,14 +19,25 @@ Use console.log() to clearly show the before-and-after type conversions.
 */
 
 
-let result = "5" - 2;
-console.log("The result is: " + result);
+let result = Number("5") - 2;  // Explicit conversion to number
+console.log("The result is: " + result); // Output: 3
 
-let isValid = Boolean("false");
+let isValid = Boolean("false"); // The string "false" is truthy!
 if (isValid) {
     console.log("This is valid!");
 }
 
 let age = "25";
-let totalAge = age + 5;
-console.log("Total Age: " + totalAge);
+let totalAge = Number(age) + 5;  // Convert to number before addition
+console.log("Total Age: " + totalAge); // Output: 30
+
+let x = "10";
+let y = 2;
+let resultproduct = x * y; // "10" is implicitly converted to 10
+console.log("Implicit conversion:", resultproduct); // Output: 20
+
+let val = undefined;
+console.log("Before:", val, "Type:", typeof val);
+
+let converted = Number(val);  // undefined → NaN
+console.log("After conversion:", converted, "Type:", typeof converted); // Output: NaN
